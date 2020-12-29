@@ -1,4 +1,4 @@
-/* User-Owns-Data Lab Styles from Power BI Dev Camp */
+/* App-Owns-Data Lab Styles from Power BI Dev Camp */
 
 ul i {  padding-right: 4px; }
 h1 {  font-size: 1.35em; }
