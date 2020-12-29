@@ -1,0 +1,173 @@
+/* User-Owns-Data Lab Styles from Power BI Dev Camp */
+
+ul i {  padding-right: 4px; }
+h1 {  font-size: 1.35em; }
+h2 {  font-size: 1.25em; }
+h3 {  font-size: 1.1em; }
+h4 {  font-size: 1.0em; }
+
+.mb-3, .my-3 {
+  margin-bottom: 0 !important;
+}
+
+nav {
+  margin-bottom: 0px;
+}
+
+i {
+  margin-right: 4px;
+}
+
+
+#banner {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.jumbotron {
+  background-color: #EDBE11;
+  border: 1px solid #AAA;
+  margin-top: 16px;
+}
+
+/* styles for embed page */
+
+#content-box {
+  padding-left: 0;
+  padding-right: 0;
+  border: solid 1px black;
+}
+
+#left-nav {
+  background-color: black;
+  color: white;
+  padding: 0;
+  border: 1px solid black;
+}
+
+#left-nav .navbar-header {
+  color: black;
+  background-color: #EDBE11;
+  padding: 2px;
+  padding-left: 4px;
+  border-bottom: 1px solid #333333;
+  font-size: 14px;
+}
+
+#workspace-selector {
+  width: 100%;
+  padding: 0;
+}
+
+#workspace-selector-dropdown {
+  padding: 0px;
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  right: 8px;
+  top: 45%;
+}
+
+#left-nav .navbar-collapse, #left-nav .dropdown {
+  background-color: white;
+  color: black;
+  padding: 8px;
+  font-size: 12px;
+  border-bottom: 1px solid #333333;
+}
+
+#left-nav .navbar-collapse {
+  padding: 8px;
+}
+
+#left-nav .dropdown {
+  padding: 0px;
+}
+
+  #left-nav .dropdown button {
+    margin: 0px;
+    padding: 4px;
+    width: 100%;
+    text-align: left;
+  }
+
+
+#embed-container {
+  min-height: 480px;
+  height: 600px;
+}
+
+
+.no-content {
+  font-style: italic;
+  margin-left: 16px;
+  color: #88AAAA;
+}
+
+#embedding-instructions {
+  margin: 24px;
+  color: #BBBBBB;
+}
+
+#embed-toolbar {
+  margin-top: -1px;
+  background-color: black;
+  color: white;
+  padding: 4px;
+  font-size: 12px;
+}
+
+  #embed-toolbar button {
+    margin: 0px;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px;
+    color: #222;
+    background-color: #F2C811;
+    border-color: #111;
+    display: inline;
+    float: right;
+    margin-left: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+.workspaces-toolbar {
+  background-color: #CCCCCC;
+  border: 1px solid #666666;
+  border-top-style: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 8px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+#create-workspace-button, #back-to-workspaces-button {
+  background-color: #F2C811;
+  color: black;
+  border: 1px solid black;
+}
+
+table a.nav-link {
+  margin: 0px;
+  padding: 4px;
+  padding-left: 6px;
+  background-color: #F2C811;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.create-workspace-fieldset {
+  background-color: #EEEEEE;
+  border: solid 1px #AAAAAA;
+  padding: 24px;
+}
+
+  .create-workspace-fieldset legend {
+    width: auto;
+    padding: 8px;
+  }

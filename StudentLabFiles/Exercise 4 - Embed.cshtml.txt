@@ -1,0 +1,14 @@
+@model UserOwnsData.Services.EmbeddedReportViewModel;
+
+<div id="embed-container" style="height:800px;"></div>
+
+@section Scripts {
+  <script>
+    var viewModel = {
+      reportId: "@Model.Id",
+      embedUrl: "@Model.EmbedUrl",
+      token: "@Model.Token"
+    };
+  </script>
+  <script src="~/js/embed.js"></script>
+}

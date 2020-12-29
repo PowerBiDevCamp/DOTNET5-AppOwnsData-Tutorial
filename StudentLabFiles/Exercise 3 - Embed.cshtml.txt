@@ -1,0 +1,19 @@
+@model UserOwnsData.Services.EmbeddedReportViewModel;
+
+<style>
+  table td {
+    min-width: 120px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    font-size: 0.8em;
+  }
+</style>
+
+<h3>Report View Model Data</h3>
+
+<table class="table table-bordered table-striped table-sm" >
+  <tr><td>Report Name</td><td>@Model.Name</td></tr>
+  <tr><td>Report ID</td><td>@Model.Id</td></tr>
+  <tr><td>Embed Url</td><td>@Model.EmbedUrl</td></tr>
+  <tr><td>Token</td><td>@Model.Token</td></tr>
+</table>
