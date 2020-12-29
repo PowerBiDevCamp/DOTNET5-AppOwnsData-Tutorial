@@ -44,11 +44,13 @@ $adSecurityGroupName = "Power BI Apps"
 $adSecurityGroup = Get-AzureADGroup -Filter "DisplayName eq '$adSecurityGroupName'"
 if($adSecurityGroup) {
     # Add service principal of the new app as member of Power BI Apps group
-    Add-AzureADGroupMember -ObjectId $($adSecurityGroup.ObjectId) -RefObjectId $($serviceServicePrincipalObjectId)
+    Add-AzureADGroupMember -ObjectId $($adSecurityGroup.ObjectId) `
+                           -RefObjectId $($serviceServicePrincipalObjectId)
 
     # Display members of the Power BI Apps group
     Write-Host "Members of Azure AD group named $adSecurityGroupName"
-    Get-AzureADGroupMember -ObjectId $($adSecurityGroup.ObjectId) | Format-Table ObjectType, ObjectId, DisplayName
+    $members = Get-AzureADGroupMember -ObjectId $($adSecurityGroup.ObjectId) 
+    $members | Format-Table ObjectType, ObjectId, DisplayName
 }
 
 $outputFile = "$PSScriptRoot\AppOwnsDataSampleApp.txt"

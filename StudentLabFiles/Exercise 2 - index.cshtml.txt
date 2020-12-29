@@ -8,7 +8,7 @@
 }
 else {
   <div class="jumbotron">
-    <h2>Welcome to the User-Owns-Data Tutorial</h2>
+    <h2>Welcome to the App-Owns-Data Tutorial</h2>
     <p>Click the <strong>sign in</strong> link in the upper right to get started</p>
   </div>
 }
