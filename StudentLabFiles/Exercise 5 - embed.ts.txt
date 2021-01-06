@@ -26,7 +26,7 @@ $(() => {
 		embedUrl: viewModel.embedUrl,
 		accessToken: viewModel.token,
 		permissions: models.Permissions.All,
-		tokenType: models.TokenType.Aad,
+		tokenType: models.TokenType.Embed,
 		viewMode: models.ViewMode.View,
 		settings: {
 			panes: {
@@ -47,7 +47,7 @@ $(() => {
 	var heightBuffer = 12;
 	var newHeight = $(window).height() - ($("header").height() + heightBuffer);
 	$("#embed-container").height(newHeight);
-	$(window).resize(function () {
+	$(window).on("resize",function () {
 		var newHeight = $(window).height() - ($("header").height() + heightBuffer);
 		$("#embed-container").height(newHeight);
 	});

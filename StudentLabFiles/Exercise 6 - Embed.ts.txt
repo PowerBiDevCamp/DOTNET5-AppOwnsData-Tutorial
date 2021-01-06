@@ -49,13 +49,6 @@ $(() => {
 
   workspaceSelector.text(viewModel.currentWorkspace);
 
-  var linkMyWorkspace = $("<a>", { "href": "/home/embed/" })
-    .text("My Workspace")
-    .addClass("dropdown-item");
-  workspacesList.append(linkMyWorkspace);
-
-  workspacesList.append($("<div>").addClass("dropdown-divider"))
-
   viewModel.workspaces.forEach((workspace: Workspace) => {
     var link = $("<a>", { "href": "/home/embed/?workspaceId=" + workspace.id })
       .text(workspace.name)
@@ -64,7 +57,9 @@ $(() => {
   });
 
   if (viewModel.reports.length == 0) {
-    reportsList.append($("<li>").text("You have no reports"));
+    reportsList.append($("<li>")
+      .text("no reports in workspace")
+      .addClass("no-content"));
   }
   else {
     viewModel.reports.forEach((report: Report) => {
@@ -78,7 +73,9 @@ $(() => {
   }
 
   if (viewModel.datasets.length == 0) {
-    datasetsList.append($("<li>").text("You have no datasets"));
+    datasetsList.append($("<li>")
+      .text("no datasets in workspace")
+      .addClass("no-content"));
   }
   else {
     viewModel.datasets.forEach((dataset: Dataset) => {
@@ -115,11 +112,10 @@ var embedReport = (report: Report, editMode: boolean = false) => {
     id: report.id,
     embedUrl: report.embedUrl,
     accessToken: token,
-    tokenType: models.TokenType.Aad,
-    permissions: models.Permissions.All,    
+    tokenType: models.TokenType.Embed,
+    permissions: models.Permissions.All,
     viewMode: editMode ? models.ViewMode.Edit : models.ViewMode.View,
     settings: {
-      useCustomSaveAsDialog: true,
       panes: {
         filters: { visible: false },
         pageNavigation: { visible: true }
@@ -136,15 +132,15 @@ var embedReport = (report: Report, editMode: boolean = false) => {
   powerbi.reset(reportContainer);
   var embeddedReport: powerbi.Report = <powerbi.Report>powerbi.embed(reportContainer, config);
 
-  embeddedReport.on("saved", function (event: any) {
+
+  embeddedReport.on("saved", (event: any) => {
+
     // check for saveAs
+    console.log(event.detail);
+
+    // redirect on SaveAs command
     if (event.detail.saveAs) {
-      if (window.location.href.includes("?")) {
-        window.location.href = window.location.href + "&newReport=" + event.detail.reportObjectId;
-      }
-      else {
-        window.location.href = window.location.href + "?newReport=" + event.detail.reportObjectId;
-      }
+      window.location.href = window.location.href + "&newReport=" + event.detail.reportObjectId;
     }
 
   });
@@ -159,8 +155,8 @@ var embedReport = (report: Report, editMode: boolean = false) => {
   }
   else {
     $("#toggle-edit").show();
-    $("#toggle-edit").unbind("click");
-    $("#toggle-edit").click(function () {
+    $("#toggle-edit").off("click");
+    $("#toggle-edit").on("click",  () => {
       // toggle between view and edit mode
       viewMode = (viewMode == "view") ? "edit" : "view";
       embeddedReport.switchMode(viewMode);
@@ -173,13 +169,11 @@ var embedReport = (report: Report, editMode: boolean = false) => {
       });
     });
 
-    $("#full-screen").unbind("click");
-    $("#full-screen").click(function () {
+    $("#full-screen").off("click");
+    $("#full-screen").on("click", () => {
       embeddedReport.fullscreen();
     });
-
   };
-
 }
 
 var embedNewReport = (dataset: Dataset) => {
@@ -194,7 +188,7 @@ var embedNewReport = (dataset: Dataset) => {
     datasetId: dataset.id,
     embedUrl: "https://app.powerbi.com/reportEmbed",
     accessToken: token,
-    tokenType: models.TokenType.Aad,
+    tokenType: models.TokenType.Embed,
     settings: {
       panes: {
         filters: { visible: true, expanded: false }
@@ -215,8 +209,8 @@ var embedNewReport = (dataset: Dataset) => {
   $("#embed-toolbar").show();
 
   $("#toggle-edit").hide();
-  $("#full-screen").unbind("click");
-  $("#full-screen").click(function () {
+  $("#full-screen").off("click");
+  $("#full-screen").on("click", () => {
     embeddedReport.fullscreen();
   });
 
@@ -247,14 +241,13 @@ var embedNewReport = (dataset: Dataset) => {
 
 };
 
-
 // reset left-nav to height of browser window
 $(function () {
   var heightBuffer = 8;
   var newHeight = window.innerHeight - ($("#banner").height() + heightBuffer);
   $("#left-nav").height(newHeight);
   $("#content-box").height(newHeight);
-  $(window).resize(function () {
+  $(window).on("resize", () => {
     var newHeight = window.innerHeight - ($("#banner").height() + heightBuffer);
     $("#left-nav").height(newHeight);
     $("#content-box").height(newHeight);

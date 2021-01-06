@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "user-owns-data",
+  "name": "app-owns-data",
   "private": true,
   "scripts": {
     "build": "webpack"

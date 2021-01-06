@@ -17,7 +17,7 @@ $(function () {
     embedUrl: embedUrl,
     accessToken: token,
     permissions: models.Permissions.All,
-    tokenType: models.TokenType.Aad,
+    tokenType: models.TokenType.Embed,
     viewMode: models.ViewMode.View,
     settings: {
       panes: {

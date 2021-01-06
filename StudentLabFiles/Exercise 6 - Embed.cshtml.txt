@@ -1,4 +1,8 @@
-@model string;
+@model string
+
+<script>
+    var viewModel = @Html.Raw(Model);
+</script>
 
 <div class='container-fluid'>
   <div class='row'>
@@ -15,13 +19,13 @@
           </div>
         </div>
         <div class='navbar-header navbar-toggle' data-toggle='collapse' data-target='.reports-collapse'>
-          Open Report
+          Reports
         </div>
         <div id='reports-menu' class='navbar-collapse reports-collapse'>
           <ul id='reports-list' class='nav navbar-nav'></ul>
         </div>
         <div class='navbar-header navbar-toggle' data-toggle='collapse' data-target='.datasets-collapse'>
-          New Report
+          Datasets
         </div>
         <div id='datasets-menu' class='navbar-collapse datasets-collapse'>
           <ul id='datasets-list' class='nav navbar-nav'></ul>
@@ -30,26 +34,24 @@
     </div>
     <div id="content-box" class='col-sm-10'>
       <div id="embedding-instructions">
-        <h2>To Perform User-Owns-Data Embedding</h2>
+        <h2>To Perform App-Owns-Data Embedding</h2>
         <ul>
           <li>Use the workspace selector menu to choose a workspace.</li>
-          <li>Click on an existing report to open it.</li>
+          <li>Click on an existing report to embed it.</li>
           <li>Click on an existing dataset to create a new report.</li>
         </ul>
       </div>
       <div id="embed-toolbar" role="toolbar" style="display:none">
         <span id="breadcrumb"></span>
-        <button type="button" id="full-screen" class="btn btn-sm ">Full Screen</button>
-        <button type="button" id="toggle-edit" class="btn btn-sm ">Toggle Edit Mode</button>
+        <button type="button" id="full-screen" class="btn btn-sm "><i class="fa fa-television"></i>Full Screen</button>
+        <button type="button" id="toggle-edit" class="btn btn-sm "><i class="fa fa-edit"></i>Toggle Edit Mode</button>
       </div>
       <div id="embed-container"></div>
     </div>
+
   </div>
 </div>
 
 @section Scripts {
-  <script>
-    var viewModel = @Html.Raw(Model);
-  </script>
-  <script src="~/js/embed.js"></script>
+  <script src="/js/embed.js"></script>
 }
