@@ -5,6 +5,9 @@ This tutorial teaches developers how to create a .NET 5 MVC web applicaiton that
  - [In DOCX Format](https://github.com/PowerBiDevCamp/DOTNET5-AppOwnsData-Tutorial/raw/master/Tutorial.docx)
  - [In PDF Format](https://github.com/PowerBiDevCamp/DOTNET5-AppOwnsData-Tutorial/raw/master/Tutorial.pdf)
 
+### Download the student files for these hands-on lab exercises
+ - [In ZIP Format](https://github.com/PowerBiDevCamp/DOTNET5-AppOwnsData-Tutorial/archive/master.zip)
+
 ### Lab exercises in this tutorial
 - Exercise 1: Create a New Azure AD Application
 - Exercise 2: Create a .NET 5 Project for a Secure Web Application
