@@ -1,2 +1,2 @@
-## .NET User-Owns-Data Embedding Sample
-This tutorial teaches developers who to create sample .NET 5 MVC web applicaiton that implements Power BI embedding. 
+## .NET App-Owns-Data Embedding Tutorial with .NET 5
+This tutorial teaches developers how to create sample .NET 5 MVC web applicaiton that implements Power BI embedding using the App-Owns-Data embedding model.
