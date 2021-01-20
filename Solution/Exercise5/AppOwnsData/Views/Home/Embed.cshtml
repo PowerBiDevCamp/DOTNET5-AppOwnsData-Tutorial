@@ -1,0 +1,15 @@
+@model AppOwnsData.Services.EmbeddedReportViewModel;
+
+<div id="embed-container"></div>
+
+@section Scripts {
+  <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.13.3/dist/powerbi.min.js"></script>
+  <script>
+    var viewModel = {
+      reportId: "@Model.Id",
+      embedUrl: "@Model.EmbedUrl",
+      token: "@Model.Token"
+    };
+  </script>
+  <script src="~/js/embed.js"></script>
+}
